@@ -27,7 +27,7 @@ production:
     <<: *default
     adapter: postgresql
     encoding: unicode
-    uri: <%= ENV['DATABASE_URL'] %>
+    url: <%= ENV['DATABASE_URL'] %>
   cache:
     <<: *primary_production
     database: app_production_cache
