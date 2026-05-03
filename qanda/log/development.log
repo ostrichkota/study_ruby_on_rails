@@ -817,3 +817,91 @@ Processing by QuestionsController#index as TURBO_STREAM
 Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
 
 
+Started GET "/questions/new" for 127.0.0.1 at 2026-05-03 20:46:43 +0900
+Processing by QuestionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/new.html.erb within layouts/application
+  Rendered questions/_form.html.erb (Duration: 7.2ms | GC: 0.0ms)
+  Rendered questions/new.html.erb within layouts/application (Duration: 8.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 12.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2026-05-03 20:46:51 +0900
+Processing by QuestionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"asasasa", "name"=>"ksksksk", "content"=>"lalalalalala"}, "commit"=>"Create Question"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:22:in `create'
+  [1m[36mQuestion Create (9.9ms)[0m  [1m[32mINSERT INTO "questions" ("name", "title", "content", "created_at", "updated_at") VALUES ('ksksksk', 'asasasa', 'lalalalalala', '2026-05-03 11:46:51.926986', '2026-05-03 11:46:51.926986') RETURNING "id" /*action='create',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:22:in `create'
+Redirected to http://127.0.0.1:3000/questions/6
+↳ app/controllers/questions_controller.rb:24:in `create'
+Completed 302 Found in 37ms (ActiveRecord: 10.5ms (1 query, 0 cached) | GC: 16.5ms)
+
+
+Started GET "/questions/6" for 127.0.0.1 at 2026-05-03 20:46:51 +0900
+Processing by QuestionsController#show as TURBO_STREAM
+  Parameters: {"id"=>"6"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 6 LIMIT 1 /*action='show',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/questions/" for 127.0.0.1 at 2026-05-03 20:47:00 +0900
+Processing by QuestionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering questions/index.html.erb within layouts/application
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" /*action='index',application='Qanda',controller='questions'*/[0m
+  ↳ app/views/questions/index.html.erb:10
+  Rendered questions/index.html.erb within layouts/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/questions/6/edit" for 127.0.0.1 at 2026-05-03 20:47:02 +0900
+Processing by QuestionsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 6 LIMIT 1 /*action='edit',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:32:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/edit.html.erb within layouts/application
+  Rendered questions/_form.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered questions/edit.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 3.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/questions/6" for 127.0.0.1 at 2026-05-03 20:47:08 +0900
+Processing by QuestionsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "question"=>{"title"=>"asasasa", "name"=>"ksksksk", "content"=>"lalalalalala_update"}, "commit"=>"Create Question", "id"=>"6"}
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 6 LIMIT 1 /*action='update',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:37:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:38:in `update'
+  [1m[36mQuestion Update (1.1ms)[0m  [1m[33mUPDATE "questions" SET "content" = 'lalalalalala_update', "updated_at" = '2026-05-03 11:47:08.477871' WHERE "questions"."id" = 6 /*action='update',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:38:in `update'
+Redirected to http://127.0.0.1:3000/questions/6
+↳ app/controllers/questions_controller.rb:39:in `update'
+Completed 302 Found in 13ms (ActiveRecord: 2.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/questions/6" for 127.0.0.1 at 2026-05-03 20:47:08 +0900
+Processing by QuestionsController#show as TURBO_STREAM
+  Parameters: {"id"=>"6"}
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = 6 LIMIT 1 /*action='show',application='Qanda',controller='questions'*/[0m
+  ↳ app/controllers/questions_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering questions/show.html.erb within layouts/application
+  Rendered questions/show.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
