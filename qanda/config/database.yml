@@ -25,16 +25,14 @@ test:
 production:
   primary:
     <<: *default
-    database: storage/production.sqlite3
+    adapter: postgresql
+    encoding: unicode
+    uri: <%= ENV['DATABASE_URL'] %>
   cache:
-    <<: *default
-    database: storage/production_cache.sqlite3
+    <<: *primary_production
+    database: app_production_cache
     migrations_paths: db/cache_migrate
   queue:
-    <<: *default
-    database: storage/production_queue.sqlite3
+    <<: *primary_production
+    database: app_production_queue
     migrations_paths: db/queue_migrate
-  cable:
-    <<: *default
-    database: storage/production_cable.sqlite3
-    migrations_paths: db/cable_migrate
